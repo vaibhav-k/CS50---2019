@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">CS50 Enrollment Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" name="myform" onsubmit="return validateForm()" method="post">
+
+        <p>Please enter your name</p>
+        <input type="text" name="name">
+        <br>
+        <br>
+        <br>
+        <p>Please select your gender</p>
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other
+        <br>
+        <br>
+        <br>
+        <p>Please select the type of books you like to read</p>
+        <input type="radio" name="booktype" value="fiction" checked> Fiction<br>
+        <input type="radio" name="booktype" value="nonfiction"> Non-fiction<br>
+        <input type="radio" name="booktype" value="others"> Others<br>
+        <br>
+        <br>
+        <br>
+        <p>Please select the brand of car you would like to own one day</p>
+        <select>
+            <option value="bmw">BMW</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+            <option value="volvo">Volvo</option>
+        </select>
+        <br>
+        <br>
+        <br>
+        <input type="reset">
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        function validateForm() {
+            var name = document.forms["myForm"]["tname"].value;
+            var gender = document.forms["myForm"]["gender"].value;
+
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+
+            if (gender == "") {
+                alert("Gender must be selected");
+                return false;
+            }
+
+            if (booktype == "") {
+                alert("Type of book must be selected");
+                return false;
+            }
+        }
+
+    </script>
+
+{% endblock %}
